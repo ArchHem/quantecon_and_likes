@@ -133,8 +133,8 @@ port_returns = vcat(sum(lr_hist, dims = 1)...)
 market_returns = vcat(mean(market_lr', dims = 1)...)
 
 plot_t = full_commodities[!,:t]
-#plot(plot_t, cumsum(port_returns), label = "Cummultative cross-skew portfolio log returns", ylabel = "∝ ∑ log(r)", title = "Market vs portfolio returns", dpi = 1500)
-#plot!(plot_t, cumsum(market_returns), label = "Cummultative market log returns")
+plt = plot(plot_t, cumsum(port_returns), label = "Cummultative cross-skew portfolio log returns", ylabel = "∝ ∑ log(r)", title = "Market vs portfolio returns", dpi = 1500)
+plot!(plot_t, cumsum(market_returns), label = "Cummultative market log returns")
 
 cols_to_plot = generate_col_names(full_commodities,:c_)
 
