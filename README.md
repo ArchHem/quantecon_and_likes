@@ -44,12 +44,7 @@ After performing the backtest, we perform a simple linear regression between the
 
 $r_p = \alpha + \beta * r_m$
 
-From the above form, we get parameter values.
-
-| Coefficients | Coef.      | Std. Error | t    | Pr(>|t|) | Lower 95%   | Upper 95%   |
-|--------------|------------|------------|------|----------|-------------|-------------|
-| **alpha**    | 0.000382148 | 0.000442704| 0.86 | 0.3881   | -0.000486095 | 0.00125039  |
-| **beta**     | 0.225063   | 0.0406256  | 5.54 | <1e-07   | 0.145387    | 0.304739    |
+From the above form, we get parameter values (image TBA).
 
 I.e. while we technically have a non-zero alpha (even if just very small), its confidence interval is very large and it has a small t-score, indicating low confidence. A bit more troubling is that the $\beta$ is much different from 0, suggesting that we are not de-clupled from the market enough and is still suspicible to market movements. 
 
