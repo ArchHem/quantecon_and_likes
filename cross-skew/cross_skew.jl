@@ -4,9 +4,10 @@ using DataFrames, Dates, Plots, StatsBase, ProgressBars, DataFramesMeta, GLM
 using .QSupport
 
 #import queried data
+#we dont rename our df's
 
-full_commodities = CSV.read("data/commodities_2016_2024.csv",DataFrame)
-closing_commodities = CSV.read("data/commodities_2016_2024_close.csv",DataFrame)
+full_commodities = CSV.read("data/equities_2016_2024.csv",DataFrame)
+closing_commodities = CSV.read("data/equities_2016_2024_close.csv",DataFrame)
 
 
 #we want to begin from a date that is not at the very end of the stock histories... because we want good skew estimates!
