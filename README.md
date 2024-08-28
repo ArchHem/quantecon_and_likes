@@ -52,7 +52,7 @@ I.e. we technically have a non-zero alpha (even if just very small), its confide
 
 For equities, we get a much 'better' fit:
 
-![eq_fit](https://github.com/ArchHem/quantecon_and_likes/blob/main/visul/equities_fit.png)
+![eq_fit](https://github.com/ArchHem/quantecon_and_likes/blob/main/visul/equities_fix.png)
 
 The $\beta$ is much smaller in magnitude (we have succesfully de-coupled from the market) and we have some small, but much more confident positive alpha. 
 
