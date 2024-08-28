@@ -22,7 +22,7 @@ The strategy then proceeds as such: given some $N$ number of assets and a _asses
 
 The actual portfolio weights are calculated via:
 
-$ z*(O(\kappa)_i - (N+1)/2 )$
+$z*(O(\kappa)_i - (N+1)/2 )$
 
 where $O()$ is the ordinal rank, $\kappa$ is the rolled skew at the assesment day, and z is chosen such that the sum of the total weights should be zero (ensuring self financing). For details see the `cross_skew.jl` file. Most of the data pipeline and its dynmically implemented supprt is found in `support_funcs.jl`
 
