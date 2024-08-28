@@ -48,13 +48,17 @@ From the above form, we get parameter values for the commodities asset group:
 
 ![comm_fit](https://github.com/ArchHem/quantecon_and_likes/blob/main/visul/commodity_fit.png)
 
-I.e. we technically have a non-zero alpha (even if just very small), its confidence interval is very large and it has a small t-score, indicating low confidence. A bit more troubling is that the $\beta$ is much different from 0, suggesting that we are not de-clupled from the market enough and is still suspicible to market movements A (and beta's parameter fit has a high confidence). 
+I.e. we technically have a non-zero alpha (even if just very small), its confidence interval is very large and it has a small t-score, indicating low confidence. A bit more troubling is that the $\beta$ is much different from 0, suggesting that we are not de-clupled from the market enough and is still suspicible to market movements, further worsened by the fact that beta's parameter fit has a high confidence via t-test. 
 
 For equities, we get a much 'better' fit:
 
 ![eq_fit](https://github.com/ArchHem/quantecon_and_likes/blob/main/visul/equities_fix.png)
 
-The $\beta$ is much smaller in magnitude (we have succesfully de-coupled from the market) and we have some small, but much more confident positive alpha. 
+The $\beta$ is much smaller in magnitude (we have succesfully de-coupled from the market) and we have some small, but much more confident positive alpha. As expected, the skewed portfolio still outperforms the unweighted market, but as easily seen, it has successfully avoided the worst of the market crashes as well.
+
+![eq_perf](https://github.com/ArchHem/quantecon_and_likes/blob/main/visul/market_vs_skew_equities.png)
+
+
 
 
 Parts of this part of the codebase (mainly the @groupby trick) was found by me while reading about this strategy, located [here](https://dm13450.github.io/2024/02/08/Cross-Asset-Skew-A-Trading-Strategy.html) where I also found out about GLM (with the added benefit that I can compare my parameters). All credit is due to the author.
