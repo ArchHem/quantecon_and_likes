@@ -22,9 +22,9 @@ The strategy then proceeds as such: given some $N$ number of assets and a _asses
 
 The actual portfolio weights are calculated via:
 
-$z*(O(\kappa)_i - (N+1)/2 )$
+$z*(O(-\kappa)_i - (N+1)/2 )$
 
-where $O()$ is the ordinal rank, $\kappa$ is the rolled skew at the assesment day, and z is chosen such that the sum of the total weights should be zero (ensuring self financing). For details see the `cross_skew.jl` file. Most of the data pipeline and its dynmically implemented supprt is found in `support_funcs.jl`
+where $O()$ is the ordinal rank of the skew vector, $\kappa$ is the rolled skew at the assesment day, and z is chosen such that the sum of the total weights should be zero (ensuring self financing). For details see the `cross_skew.jl` file. Most of the data pipeline and its dynmically implemented supprt is found in `support_funcs.jl`
 
 Bellow we present the results of the portfolio and its weight evolution. The data used for this backtest was pulled thru an AlpacaMarkets API, using data from 2016-2024 on commodities ("GLD", "SLV", "GSG", "USO", "PPLT", "UNG", "DBA"), but the actual backtest was run on a smaller period, allowing for a larger confidence on the rolling skew. 
 
@@ -44,7 +44,7 @@ After performing the backtest, we perform a simple linear regression between the
 
 $r_p = \alpha + \beta * r_m$
 
-From the above form, we get parameter values:
+From the above form, we get parameter values for the commodities asset:
 
 ![comm_fit](https://github.com/ArchHem/quantecon_and_likes/blob/main/visul/commodity_fit.png)
 
