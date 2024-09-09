@@ -2,7 +2,7 @@
 Exercises/concepts I came across while studying the (julia) quantecon course/and or while reading John C. Hull's derivative book.
 
 ## Trading Strategies
-### Cross Asset Skew
+### Ordinal Cross Asset Skew
 
 Corss asset skew trading refers to a trading strategy (see: [paper](https://www.pm-research.com/content/iijpormgmt/48/4/194) that uses the _ordinal rank_ of the rolling skew of the (log) returns of assets to assemble a self-financing portfolio. 
 
@@ -62,4 +62,8 @@ The $\beta$ is much smaller in magnitude (we have succesfully de-coupled from th
 
 
 Parts of this part of the codebase (mainly the @groupby trick) was found by me while reading about this strategy, located [here](https://dm13450.github.io/2024/02/08/Cross-Asset-Skew-A-Trading-Strategy.html) where I also found out about GLM (with the added benefit that I can compare my parameters). All credit is due to the author.
+
+### Non-ordinal cross asset skew
+
+This section will examine if if its possible to use not just the ordinality, but the relative deviances of the assets to construct the weightnings and if its produces any (better) results. 
 
