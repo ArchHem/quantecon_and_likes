@@ -12,7 +12,11 @@ const ending_date_l = DateTime(2024,7,1)
 
 const portfolio_vec = ["SPY", "EWU", "EWJ", "INDA", "EWG", "EWL", "EWP", "EWQ", 
 "VTI", "FXI", "EWZ", "EWY", "EWA", "EWC", 
-"EWH", "EWI", "EWN", "EWD", "EWT", "EZA", "EWW", "ENOR", "EDEN", "TUR" 
+"EWH", "EWI", "EWN", "EWD", "EWT", "EZA", "EWW", "ENOR", "EDEN", "TUR" , #originals
+"DIA", "QQQ", "IWM", "MDY", "IVV", "XLF", "XLK", "XLV", 
+"XLY", "XLE", "VEA", "EEM", "IEFA", "AAXJ", "EPI", 
+"FM", "ICLN", "IGF", "SCHX", "VUG", "VTV", "IJR", "VT", "EWGS" #expanded
+
 ]
 
 portfolio = portfolio_load(portfolio_vec, start_date_l,ending_date_l)
@@ -43,7 +47,7 @@ portfolio[!,:skew_avg] = [mus...]
 portfolio[!,:skew_median] = [medians...]
 close_df, next_df = floored_statistic(portfolio,Month(1))
 
-function cont_skew_weights(rolled_skews, target)
+function cont_skew_weights(rolled_skews, target, power = 0.2)
     norm = 0.5 #can technically be anything
     T = eltype(rolled_skews)
     weights = zeros(T, length(rolled_skews))
@@ -52,10 +56,10 @@ function cont_skew_weights(rolled_skews, target)
     pos_id = dist .> zero(T)
     neg_id = dist .< zero(T)
     
-    weights[pos_id] .= dist[pos_id]
+    weights[pos_id] .= @. abs(dist[pos_id])^power
     weights[pos_id] ./= sum(weights[pos_id])/norm
     weights[pos_id] .*= -1.0
-    weights[neg_id] .= -dist[neg_id]
+    weights[neg_id] .= @. abs(dist[neg_id])^power
     weights[neg_id] ./= sum(weights[neg_id])/norm
     #positive skews get negative weights
     #this ensures the sum of weights remains 0
@@ -63,7 +67,7 @@ function cont_skew_weights(rolled_skews, target)
     return weights
 end
 
-function cont_skew_based_trade(df::DataFrame, asses_df::DataFrame, colname_start::Symbol = :rolled_skew_lr_c, target_call = :skew_avg)
+function cont_skew_based_trade(df::DataFrame, asses_df::DataFrame, colname_start::Symbol = :rolled_skew_lr_c, target_call = :skew_median)
     relevant_calls = generate_col_names(df,colname_start)
     number_of_assets = length(relevant_calls)
     
