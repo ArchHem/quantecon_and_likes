@@ -75,6 +75,10 @@ To provide a concrete example, the current median element of the assets can be u
 
 The following, intermediate results were produced on trading intervals of 1 month, rolling time windows of 200 trading days and the median of the current rolling skews as the pivot. We have used a portfolio of 40 stock indeces as a backtest. The GLM fit was carried out on the log-returns. (TBA: other asset classes)
 
+The evolution of the portfolfio weights is much more erratic than that associated with the simple, ordinality based skew strategy. 
+
+![med_weights](https://github.com/ArchHem/quantecon_and_likes/blob/main/visul/Equities_weights_n_02_t_200_med.png)
+
 We have found that while n>1.0 is typically able to beat the historical equity market using n > 1.0, the resulting GLM fit produces statistically insignificant $\alpha$/$\Beta$. For n<0.5, the significance results get _much_ better, with p-values well under 0.05, with annual $\alpha$ around 2.5-3.0%. The computation of Sharpe ratio is not yet carried out as AlpacaMarkets does not provide easily retrivable US treasy bond yields. However, for these parameter values we are actually beaten by the historic market. 
 TBA: Plots
 
