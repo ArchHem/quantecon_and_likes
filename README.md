@@ -67,3 +67,17 @@ Parts of this part of the codebase (mainly the @groupby trick) was found by me w
 
 This section will examine if if its possible to use not just the ordinality, but the relative deviances of the assets to construct the weightnings and if its produces any (better) results. 
 
+The basic idea is that, given some historic indicator of the _pivot_,$\rho(t)$, rolling skew (for skews above which we will construct negative weights) and the distances between this pivot and the individual asset rolling skews, $\rho(t) - \hat{S}(t)_i = d(t)_i$, it is possible to construct a portfolio that not just considers the ordinal rank of the assets, but their reltaive magnitudes as well. 
+
+To provide a concrete example, the current median element of the assets can be used as a pivot elemens, and the weights can be proportional to $w(t)_i = d(t)_i^n$ where n > 0.0. Bellow we illustrate the median vs average rolling skew across our asset group, across some 20 equities. 
+
+![med_vs_avg](https://github.com/ArchHem/quantecon_and_likes/blob/main/visul/Equities_med_vs_avg.png)
+
+The following, intermediate results were produced on trading intervals of 1 month, rolling time windows of 200 trading days and the median of the current rolling skews as the pivot. We have used a portfolio of 40 stock indeces as a backtest. The GLM fit was carried out on the log-returns. (TBA: other asset classes)
+
+We have found that while n>1.0 is typically able to beat the historical equity market using n > 1.0, the resulting GLM fit produces statistically insignificant $\alpha$/$\Beta$. For n<0.5, the significance results get _much_ better, with p-values well under 0.05, with annual $\alpha$ around 2.5-3.0%. The computation of Sharpe ratio is not yet carried out as AlpacaMarkets does not provide easily retrivable US treasy bond yields. However, for these parameter values we are actually beaten by the historic market. 
+TBA: Plots
+
+
+
+
