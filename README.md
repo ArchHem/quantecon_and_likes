@@ -81,9 +81,15 @@ The evolution of the portfolfio weights is much more erratic than that associate
 
 We have found that while n>1.0 is typically able to beat the historical equity market using n > 1.0, the resulting GLM fit produces statistically insignificant $\alpha$ / $\beta$. For n<0.5, the significance results get _much_ better, with p-values well under 0.05, with annual $\alpha$ around 2.5-3.0%. The computation of Sharpe ratio is not yet carried out as AlpacaMarkets does not provide easily retrivable US treasy bond yields. However, for these parameter values we are actually beaten by the historic market. 
 
-The resulting GLM fits (between the portfolio/unweighted market log-returns) are summarized bellow for the commodities universe. 
+The resulting GLM fits, for n = 0.2, (between the portfolio/unweighted market log-returns) are summarized bellow for the commodities universe. As we can see, the beta is very close to zero, and we have some small (annual 2.5%-ish) alpha: with both parameters having statistically significant confidences.
 
 ![glm_fit](https://github.com/ArchHem/quantecon_and_likes/blob/main/visul/med_t200_n02_fit.png)
+
+In short, it seems that compared to the ordinal rank trading strategy, on commodities taking into account the relative deviances of skews produces much more confident alphas, but at the same time provides much less (around half) of the original strategy's alpha (which was _barely_ but not statistically significant). It furthermore has 2 hyperparameters (choice of the pivot, typically rolling skew average across assets, or their local median) and the choice of the distance power _n_, which means its much easier to overfit! 
+
+TBA: Sharpe ratio, further testing (bootstrapping, vs growth/momentum)
+
+
 
 
 
