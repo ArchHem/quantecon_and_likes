@@ -67,7 +67,7 @@ Parts of this part of the codebase (mainly the @groupby trick) was found by me w
 
 This section will examine if if its possible to use not just the ordinality, but the relative deviances of the assets to construct the weightnings and if its produces any (better) results. 
 
-The basic idea is that, given some historic indicator of the _pivot_,$\rho(t)$, rolling skew (for skews above which we will construct negative weights) and the distances between this pivot and the individual asset rolling skews, $\rho(t) - \hat{S}(t)_i = d(t)_i$, it is possible to construct a portfolio that not just considers the ordinal rank of the assets, but their reltaive magnitudes as well. 
+The basic idea is that, given some historic indicator of the _pivot_,$\rho(t)$, rolling skew (for skews above which we will construct negative weights) and the distances between this pivot and the individual asset rolling skews, $\rho(t) - \hat{S}(t)_i = d(t)_i$, it is possible to construct a portfolio that not just considers the ordinal rank of the assets, but their reltaive magnitudes as well. (we multiply positive skew wights by -1 and normalize the weights to 0, to esnure self-financing)
 
 To provide a concrete example, the current median element of the assets can be used as a pivot elemens, and the weights can be proportional to $w(t)_i = d(t)_i^n$ where n > 0.0. Bellow we illustrate the median vs average rolling skew across our asset group, across some 20 equities. 
 
