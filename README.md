@@ -73,7 +73,7 @@ To provide a concrete example, the current median element of the assets can be u
 
 ![med_vs_avg](https://github.com/ArchHem/quantecon_and_likes/blob/main/visul/Equities_med_vs_avg.png)
 
-The following, intermediate results were produced on trading intervals of 1 month, rolling time windows of 200 trading days and the median of the current rolling skews as the pivot. We have used a portfolio of 40 stock indeces as a backtest. The GLM fit was carried out on the log-returns. (TBA: other asset classes)
+The following, intermediate results were produced on trading intervals of 1 month, rolling time windows of 200 trading days and the median of the current rolling skews as the pivot. We have used a portfolio of 40 equity indeces as a backtest. The GLM fit was carried out on the log-returns. (TBA: other asset classes)
 
 The evolution of the portfolfio weights is much more erratic than that associated with the simple, ordinality based skew strategy. 
 
