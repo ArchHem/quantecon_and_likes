@@ -87,6 +87,12 @@ The resulting GLM fits, for n = 0.2, (between the portfolio/unweighted market lo
 
 In short, it seems that compared to the ordinal rank trading strategy, on commodities taking into account the relative deviances of skews produces much more confident alphas, but at the same time provides much less (around half) of the original strategy's alpha (which was _barely_ but not statistically significant). It furthermore has 2 hyperparameters (choice of the pivot, typically rolling skew average across assets, or their local median) and the choice of the distance power _n_, which means its much easier to overfit! 
 
+A potential error could be the fact that we are fitting to more assets then in the original case (20 vs 40 equituies, with 20 new ones). However, performing the fit on the original assets only still yield (or even a bit better) confidences, with the $\beta$ being largely the same.
+
+![glm_og_fit](https://github.com/ArchHem/quantecon_and_likes/blob/main/visul/med_t200_n02_fit_20_asset.png)
+
+Unfortunately, the (small) disrepancies in the alpha (2.6% vs 3.0%) between these asset groups suggest that we have some exposure to the number of assets. Analysis of more asset groups would be required to draw conclusions however, as this comparassion has only used equities so far. 
+
 TBA: Sharpe ratio, further testing (bootstrapping, vs growth/momentum)
 
 
