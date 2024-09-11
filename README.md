@@ -93,7 +93,9 @@ A potential error could be the fact that we are fitting to more assets then in t
 
 Unfortunately, the (small) disrepancies in the alpha (2.6% vs 3.0%) between these asset groups suggest that we have some exposure to the number of assets. Analysis of more asset groups would be required to draw conclusions however, as this comparassion has only used equities so far. 
 
-TBA: Sharpe ratio, further testing (bootstrapping, vs growth/momentum)
+TBA: Sharpe ratio, further testing (bootstrapping assets, vs growth/momentum)
+
+In short, it seems that using non-ordinality might have _some_ merit, but a lot more caution is needed due to the 2 present hyperparameters of the strategy. However, it seems that compared to the original strategy, non-ordinal strategies have more confident parameter fits which does not change sigbificantly under doubling the asset pool size. 
 
 
 
