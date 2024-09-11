@@ -12,11 +12,10 @@ const ending_date_l = DateTime(2024,7,1)
 
 const portfolio_vec = ["SPY", "EWU", "EWJ", "INDA", "EWG", "EWL", "EWP", "EWQ", 
 "VTI", "FXI", "EWZ", "EWY", "EWA", "EWC", 
-"EWH", "EWI", "EWN", "EWD", "EWT", "EZA", "EWW", "ENOR", "EDEN", "TUR" , #originals
+"EWH", "EWI", "EWN", "EWD", "EWT", "EZA", "EWW", "ENOR", "EDEN", "TUR", #originals
 "DIA", "QQQ", "IWM", "MDY", "IVV", "XLF", "XLK", "XLV", 
 "XLY", "XLE", "VEA", "EEM", "IEFA", "AAXJ", "EPI", 
 "FM", "ICLN", "IGF", "SCHX", "VUG", "VTV", "IJR", "VT", "EWGS" #expanded
-
 ]
 
 portfolio = portfolio_load(portfolio_vec, start_date_l,ending_date_l)
