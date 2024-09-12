@@ -85,7 +85,7 @@ The resulting GLM fits, for n = 0.2, (between the portfolio/unweighted market lo
 
 ![glm_fit](https://github.com/ArchHem/quantecon_and_likes/blob/main/visul/med_t200_n02_fit.png)
 
-In short, it seems that compared to the ordinal rank trading strategy, on commodities taking into account the relative deviances of skews produces much more confident alphas, but at the same time provides much less (around half) of the original strategy's alpha (which was _barely_ but not statistically significant). It furthermore has 2 hyperparameters (choice of the pivot, typically rolling skew average across assets, or their local median) and the choice of the distance power _n_, which means its much easier to overfit! 
+In short, it seems that compared to the ordinal rank trading strategy, on equities taking into account the relative deviances of skews produces much more confident alphas, but at the same time provides much less (around half) of the original strategy's alpha (which was _barely_ but not statistically significant). It furthermore has 2 hyperparameters (choice of the pivot, typically rolling skew average across assets, or their local median) and the choice of the distance power _n_, which means its much easier to overfit! 
 
 A potential error could be the fact that we are fitting to more assets then in the original case (20 vs 40 equituies, with 20 new ones). However, performing the fit on the original assets only still yield (or even a bit better) confidences.
 
@@ -96,6 +96,8 @@ Unfortunately, the (small) disrepancies in the alpha and beta between these asse
 TBA: Sharpe ratio, further testing (bootstrapping assets, vs growth/momentum)
 
 In short, it seems that using non-ordinality might have _some_ merit, but a lot more caution is needed due to the 2 present hyperparameters of the strategy. However, it seems that compared to the original strategy, non-ordinal strategies have more confident parameter fits which does not change sigbificantly under doubling the asset pool size. 
+
+We stress that this analysis fails to consider trading costs and other numerical artefacts, and thus the resulting historical $\alpha$ is likely overestimated. However, since this strategy only executes a single trade a month, it is unlikely to acculumuate large trading costs. 
 
 
 
